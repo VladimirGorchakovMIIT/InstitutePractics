@@ -57,7 +57,6 @@ class LoginFragment : Fragment() {
         }
 
         registrationUser.setOnClickListener {
-
             MAIN_AUTHORIZATION.navControllerAuthorization.navigate(R.id.action_loginFragment_to_registrationFragment)
         }
     }
