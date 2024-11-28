@@ -1,35 +1,44 @@
-package com.example.institutepractics.activities
+package com.example.institutepractics.fragments_test
 
-import android.content.Context
 import android.content.Intent
-import android.nfc.Tag
 import android.os.Bundle
 import android.util.Log
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
+import com.example.institutepractics.MAIN_AUTHORIZATION
 import com.example.institutepractics.R
+import com.example.institutepractics.activities.WelcomeActivity
 import com.example.institutepractics.database.Database
-import com.example.institutepractics.models.User
+import com.example.institutepractics.databinding.FragmentLoginBinding
 
+class LoginFragment : Fragment() {
+    private lateinit var binding: FragmentLoginBinding
 
-class LoginActivity : AppCompatActivity() {
     private val TAG: String = "MyApp"
+
     private lateinit var registrationUser: TextView
     private lateinit var loginUsername: EditText
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var database: Database
 
-    private var context: Context = this
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        binding = FragmentLoginBinding.inflate(layoutInflater, container, false)
+        return binding.root
+    }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
-
-        init()//init Objects
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        init()
         loginButton.setOnClickListener {
             if (loginUsername.text.isEmpty() || loginPassword.text.isEmpty())
                 Toast.makeText(context, "Need write login or password", Toast.LENGTH_SHORT).show()
@@ -47,17 +56,15 @@ class LoginActivity : AppCompatActivity() {
         }
 
         registrationUser.setOnClickListener {
-            var intent = Intent(context, RegistrationActivity::class.java)
-            startActivity(intent)
+            MAIN_AUTHORIZATION.navControllerAuthorization.navigate(R.id.action_loginFragment_to_registrationFragment)
         }
-
     }
 
     private fun init() {
-        registrationUser = findViewById(R.id.loginRedirectText)
-        loginUsername = findViewById(R.id.login_username)
-        loginPassword = findViewById(R.id.login_password)
-        loginButton = findViewById(R.id.login_button)
+        registrationUser = binding.loginRedirectText
+        loginUsername = binding.loginUsername
+        loginPassword = binding.loginPassword
+        loginButton = binding.loginButton
         database = Database();
     }
 }

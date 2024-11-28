@@ -36,8 +36,6 @@ class WelcomeActivity : AppCompatActivity() {
         init()
 
         MAIN = this
-
-        Log.d(TAG, "Сработал метод onCreate()")
     }
 
     private fun init() {
@@ -46,35 +44,5 @@ class WelcomeActivity : AppCompatActivity() {
         user = intent.getSerializableExtra("Object") as User
 
         underTitleNameUser.text = nameUser
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "Сработал метод onStart()")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "Сработал метод onResume()")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "Сработал метод onPause()")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "Сработал метод onStop()")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(TAG, "Сработал метод onRestart()")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "Сработал метод onDestroy()")
     }
 }

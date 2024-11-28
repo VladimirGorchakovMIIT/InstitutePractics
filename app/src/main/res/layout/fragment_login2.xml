@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -8,7 +7,7 @@
     android:layout_gravity="center"
     android:background="@drawable/pagebkg"
     android:orientation="vertical"
-    tools:context=".fragments_test.RegistrationFragment">
+    tools:context=".fragments.LoginFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -25,7 +24,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
             android:background="@drawable/lavender_border"
             android:orientation="vertical"
@@ -34,14 +33,14 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Sign up"
+                android:text="Login"
                 android:textAlignment="center"
                 android:textColor="@color/lavender"
                 android:textSize="36sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/signup_username"
+                android:id="@+id/login_username"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:layout_marginTop="40dp"
@@ -52,33 +51,10 @@
                 android:textColor="@color/black" />
 
             <EditText
-                android:id="@+id/signup_email"
+                android:id="@+id/login_password"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/lavender_border"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:hint="email"
-                android:padding="8dp"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/signup_password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
-                android:background="@drawable/lavender_border"
-                android:drawableLeft="@drawable/baseline_person_24"
-                android:hint="password"
-                android:inputType="textPassword"
-                android:padding="8dp"
-                android:textColor="@color/black" />
-
-            <EditText
-                android:id="@+id/signup_confirm_password"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="20dp"
                 android:background="@drawable/lavender_border"
                 android:drawableLeft="@drawable/baseline_person_24"
                 android:hint="confirm password"
@@ -87,26 +63,26 @@
                 android:textColor="@color/black" />
 
             <Button
-                android:id="@+id/registration_button"
+                android:id="@+id/login_button"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
-                android:text="Sign up"
+                android:text="Login"
                 android:textSize="18sp"
                 app:cornerRadius="20dp" />
 
             <TextView
-                android:id="@+id/loginRedirectText"
+                android:id="@+id/loginRedirectText2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:padding="8dp"
-                android:text="Already an user? Login?"
+                android:text="Not yet registrated? Sign up?"
                 android:textColor="@color/lavender"
                 android:textSize="12sp" />
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>

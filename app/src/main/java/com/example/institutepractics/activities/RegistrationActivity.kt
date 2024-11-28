@@ -58,34 +58,4 @@ class RegistrationActivity : AppCompatActivity() {
         signupConfirmPassword = findViewById(R.id.signup_confirm_password)
         registrationButton = findViewById(R.id.registration_button)
     }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "Сработал метод onStart()")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "Сработал метод onResume()")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "Сработал метод onPause()")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "Сработал метод onStop()")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(TAG, "Сработал метод onRestart()")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "Сработал метод onDestroy()")
-    }
 }
