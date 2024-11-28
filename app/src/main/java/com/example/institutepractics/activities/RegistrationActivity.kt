@@ -33,11 +33,13 @@ class RegistrationActivity : AppCompatActivity() {
         setContentView(R.layout.activity_registration)
         init()
 
+        //Редирект на страницу с логином и паролем
         loginRedirectText.setOnClickListener {
             var intent = Intent(context, LoginActivity::class.java)
             startActivity(intent)
         }
-        
+
+        //Кнопка регистрации
         registrationButton.setOnClickListener {
             if(signupPassword.text.toString() == signupConfirmPassword.text.toString()){
 
@@ -57,35 +59,5 @@ class RegistrationActivity : AppCompatActivity() {
         signupPassword = findViewById(R.id.signup_password)
         signupConfirmPassword = findViewById(R.id.signup_confirm_password)
         registrationButton = findViewById(R.id.registration_button)
-    }
-
-    override fun onStart() {
-        super.onStart()
-        Log.d(TAG, "Сработал метод onStart()")
-    }
-
-    override fun onResume() {
-        super.onResume()
-        Log.d(TAG, "Сработал метод onResume()")
-    }
-
-    override fun onPause() {
-        super.onPause()
-        Log.d(TAG, "Сработал метод onPause()")
-    }
-
-    override fun onStop() {
-        super.onStop()
-        Log.d(TAG, "Сработал метод onStop()")
-    }
-
-    override fun onRestart() {
-        super.onRestart()
-        Log.d(TAG, "Сработал метод onRestart()")
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        Log.d(TAG, "Сработал метод onDestroy()")
     }
 }
