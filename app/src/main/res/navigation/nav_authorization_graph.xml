@@ -30,5 +30,12 @@
         android:id="@+id/welcomeFragment"
         android:name="com.example.institutepractics.fragments.WelcomeFragment"
         android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        tools:layout="@layout/fragment_welcome" >
+        <argument
+            android:name="Name"
+            android:defaultValue="Your name" />
+        <argument
+            android:name="Email"
+            android:defaultValue="Your email" />
+    </fragment>
 </navigation>

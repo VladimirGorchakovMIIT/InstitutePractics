@@ -31,7 +31,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:padding="10dp"
-        android:text="Vladimir"
+        android:text=""
         android:textAlignment="center"
         android:textColor="@color/white"
         android:textSize="30sp"

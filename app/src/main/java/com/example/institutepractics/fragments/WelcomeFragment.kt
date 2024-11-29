@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import android.widget.Toast
+import androidx.navigation.fragment.navArgs
 import com.example.institutepractics.R
 import com.example.institutepractics.databinding.FragmentWelcomeBinding
 
@@ -14,28 +15,20 @@ class WelcomeFragment : Fragment() {
     private lateinit var binding: FragmentWelcomeBinding
     private lateinit var underTitleNameUser: TextView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = FragmentWelcomeBinding.inflate(layoutInflater, container, false)
-        return inflater.inflate(R.layout.fragment_welcome, container, false)
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
 
-        val text = arguments?.getString("MyArgs")
-
-        Toast.makeText(context, text, Toast.LENGTH_SHORT).show()
-
-        underTitleNameUser.text = text
+        val arguments: WelcomeFragmentArgs by navArgs()
+        underTitleNameUser.text = arguments.Name
     }
 
     private fun init(){

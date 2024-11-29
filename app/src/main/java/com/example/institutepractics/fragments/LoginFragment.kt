@@ -18,6 +18,8 @@ import com.example.institutepractics.activities.RegistrationActivity
 import com.example.institutepractics.activities.WelcomeActivity
 import com.example.institutepractics.database.Database
 import com.example.institutepractics.databinding.FragmentLoginBinding
+import com.example.institutepractics.models.User
+import org.w3c.dom.Text
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -29,7 +31,6 @@ class LoginFragment : Fragment() {
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var database: Database
-    private lateinit var bundle: Bundle
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -42,20 +43,16 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+
         loginButton.setOnClickListener {
             if (loginUsername.text.isEmpty() || loginPassword.text.isEmpty())
                 Toast.makeText(context, "Need write login or password", Toast.LENGTH_SHORT).show()
 
             if (Database.checkUser(loginUsername.text.toString(), loginPassword.text.toString())) {
-                /*var intent = Intent(context, WelcomeActivity::class.java).apply {
-                    Log.d(TAG, "Test application" + Database.getUser(loginUsername.text.toString()))
-                    putExtra("email", Database.getUser(loginUsername.text.toString())?.name)
-                    putExtra("Object", Database.getUser(loginUsername.text.toString()))
-                }
-                startActivity(intent)*/
+                val user: User? = Database.getUser(loginUsername.text.toString())
+                val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(user?.name.toString(), user?.email.toString())
 
-                bundle.putString("MyArgs", "Hello my world")
-                findNavController().navigate(R.id.welcomeFragment, bundle)
+                findNavController().navigate(action)
             } else
                 Toast.makeText(context, "Not correct login or password", Toast.LENGTH_SHORT).show()
         }
@@ -71,6 +68,5 @@ class LoginFragment : Fragment() {
         loginPassword = binding.loginPassword
         loginButton = binding.loginButton
         database = Database()
-        bundle = Bundle()
     }
 }
