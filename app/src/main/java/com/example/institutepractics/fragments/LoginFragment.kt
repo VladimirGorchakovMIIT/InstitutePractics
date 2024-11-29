@@ -24,8 +24,6 @@ import org.w3c.dom.Text
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
 
-    private val TAG: String = "MyApp"
-
     private lateinit var registrationUser: TextView
     private lateinit var loginUsername: EditText
     private lateinit var loginPassword: EditText

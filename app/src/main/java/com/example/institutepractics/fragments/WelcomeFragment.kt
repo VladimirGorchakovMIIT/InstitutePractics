@@ -13,6 +13,7 @@ import com.example.institutepractics.databinding.FragmentWelcomeBinding
 
 class WelcomeFragment : Fragment() {
     private lateinit var binding: FragmentWelcomeBinding
+
     private lateinit var underTitleNameUser: TextView
 
     override fun onCreateView(
@@ -25,13 +26,10 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        init()
 
-        val arguments: WelcomeFragmentArgs by navArgs()
-        underTitleNameUser.text = arguments.Name
     }
 
     private fun init(){
-        underTitleNameUser = binding.underTitleNameUser
+
     }
 }
