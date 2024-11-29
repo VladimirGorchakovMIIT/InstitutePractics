@@ -5,16 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import android.widget.Toast
-import androidx.navigation.fragment.navArgs
-import com.example.institutepractics.R
+import androidx.lifecycle.lifecycleScope
 import com.example.institutepractics.databinding.FragmentWelcomeBinding
+import com.example.institutepractics.unit.CharacterAdapter
+import kotlinx.coroutines.launch
 
 class WelcomeFragment : Fragment() {
     private lateinit var binding: FragmentWelcomeBinding
 
-    private lateinit var underTitleNameUser: TextView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -26,7 +24,6 @@ class WelcomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
     }
 
     private fun init(){

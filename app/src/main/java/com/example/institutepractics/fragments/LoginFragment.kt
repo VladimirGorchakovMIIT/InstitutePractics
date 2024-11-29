@@ -11,15 +11,16 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import com.example.institutepractics.MAIN_AUTHORIZATION
 import com.example.institutepractics.R
-import com.example.institutepractics.activities.RegistrationActivity
-import com.example.institutepractics.activities.WelcomeActivity
 import com.example.institutepractics.database.Database
 import com.example.institutepractics.databinding.FragmentLoginBinding
 import com.example.institutepractics.models.User
-import org.w3c.dom.Text
+import com.example.institutepractics.network.RetrofitNetwork
+import com.example.institutepractics.network.RetrofitNetworkApi
+import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -29,6 +30,9 @@ class LoginFragment : Fragment() {
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var database: Database
+
+    private var _retrofitApi: RetrofitNetworkApi? = null
+    private val retrofitApi get() = _retrofitApi!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -41,6 +45,12 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
+
+        _retrofitApi = RetrofitNetwork()
+
+        lifecycleScope.launch {
+            val characters = retrofitApi.getUsers()
+        }
 
         loginButton.setOnClickListener {
             if (loginUsername.text.isEmpty() || loginPassword.text.isEmpty())
@@ -58,6 +68,7 @@ class LoginFragment : Fragment() {
         registrationUser.setOnClickListener {
             MAIN_AUTHORIZATION.navControllerAuthorization.navigate(R.id.action_loginFragment_to_registrationFragment)
         }
+
     }
 
     private fun init() {
