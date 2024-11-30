@@ -8,7 +8,7 @@
     android:layout_gravity="center"
     android:background="@drawable/pagebkg"
     android:orientation="vertical"
-    tools:context=".fragments_test.RegistrationFragment">
+    tools:context=".fragments.RegistrationFragment">
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -108,5 +108,4 @@
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

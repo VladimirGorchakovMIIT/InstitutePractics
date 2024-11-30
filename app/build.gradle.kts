@@ -36,6 +36,8 @@ android {
 }
 
 dependencies {
+    val fragment_version = "1.8.4"
+
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -51,4 +53,7 @@ dependencies {
     // Views/Fragments Integration
     implementation("androidx.navigation:navigation-fragment:2.8.3")
     implementation("androidx.navigation:navigation-ui:2.8.3")
+
+    //Зависимость для работы с фрагментами
+    implementation("androidx.fragment:fragment-ktx:$fragment_version")
 }
