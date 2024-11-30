@@ -13,7 +13,6 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.institutepractics.MAIN_AUTHORIZATION
 import com.example.institutepractics.R
-import com.example.institutepractics.activities.LoginActivity
 import com.example.institutepractics.database.Database
 import com.example.institutepractics.databinding.FragmentRegistrationBinding
 import com.example.institutepractics.models.User
