@@ -1,9 +1,6 @@
 package com.example.institutepractics.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,15 +8,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.institutepractics.MAIN_AUTHORIZATION
 import com.example.institutepractics.R
-import com.example.institutepractics.activities.RegistrationActivity
-import com.example.institutepractics.activities.WelcomeActivity
 import com.example.institutepractics.database.Database
 import com.example.institutepractics.databinding.FragmentLoginBinding
 import com.example.institutepractics.models.User
-import org.w3c.dom.Text
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
