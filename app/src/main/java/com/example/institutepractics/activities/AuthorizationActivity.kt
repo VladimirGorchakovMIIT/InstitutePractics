@@ -12,7 +12,6 @@ class AuthorizationActivity : AppCompatActivity() {
     lateinit var navControllerAuthorization: NavController
     private lateinit var binding: ActivityAuthorizationBinding
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityAuthorizationBinding.inflate(layoutInflater)
@@ -22,5 +21,6 @@ class AuthorizationActivity : AppCompatActivity() {
         navControllerAuthorization = Navigation.findNavController(this, R.id.nav_authorization_fragment_container)
 
         MAIN_AUTHORIZATION = this
+
     }
 }
