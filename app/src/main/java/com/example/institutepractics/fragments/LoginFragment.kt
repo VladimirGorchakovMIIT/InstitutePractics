@@ -1,9 +1,6 @@
 package com.example.institutepractics.fragments
 
-import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,16 +8,13 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.institutepractics.MAIN_AUTHORIZATION
 import com.example.institutepractics.R
 import com.example.institutepractics.database.Database
 import com.example.institutepractics.databinding.FragmentLoginBinding
 import com.example.institutepractics.models.User
-import com.example.institutepractics.network.RetrofitNetwork
-import com.example.institutepractics.network.RetrofitNetworkApi
-import kotlinx.coroutines.launch
 
 class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
@@ -30,9 +24,6 @@ class LoginFragment : Fragment() {
     private lateinit var loginPassword: EditText
     private lateinit var loginButton: Button
     private lateinit var database: Database
-
-    private var _retrofitApi: RetrofitNetworkApi? = null
-    private val retrofitApi get() = _retrofitApi!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,12 +36,6 @@ class LoginFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         init()
-
-        _retrofitApi = RetrofitNetwork()
-
-        lifecycleScope.launch {
-            val characters = retrofitApi.getUsers()
-        }
 
         loginButton.setOnClickListener {
             if (loginUsername.text.isEmpty() || loginPassword.text.isEmpty())

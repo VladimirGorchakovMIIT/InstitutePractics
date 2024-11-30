@@ -6,14 +6,13 @@ import kotlinx.serialization.json.Json
 import okhttp3.MediaType.Companion.toMediaType
 import retrofit2.Retrofit
 import retrofit2.http.GET
-import retrofit2.http.Path
 
 interface RetrofitNetworkApi {
-    @GET(value = "/characters")
+    @GET(value = "/api/characters")
     suspend fun getUsers(): List<Character>
 }
 
-private const val NETWORK_BASE_URL = "https://www.anapioficeandfire.com/api/characters"
+private const val NETWORK_BASE_URL = "https://www.anapioficeandfire.com"
 
 class RetrofitNetwork : RetrofitNetworkApi {
     private val json = Json {
