@@ -43,7 +43,7 @@ class LoginFragment : Fragment() {
 
             if (Database.checkUser(loginUsername.text.toString(), loginPassword.text.toString())) {
                 val user: User? = Database.getUser(loginUsername.text.toString())
-                val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(user?.name.toString(), user?.email.toString())
+                val action = LoginFragmentDirections.actionLoginFragmentToWelcomeFragment(user)
 
                 findNavController().navigate(action)
             } else

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_authorization_graph"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/startWindowFragment">
 
     <fragment
         android:id="@+id/loginFragment"
@@ -16,6 +16,11 @@
         <action
             android:id="@+id/action_loginFragment_to_welcomeFragment"
             app:destination="@id/welcomeFragment" />
+        <argument
+            android:name="ObjectType"
+            app:argType="com.example.institutepractics.models.User"
+            app:nullable="true"
+            android:defaultValue="@null"/>
     </fragment>
     <fragment
         android:id="@+id/registrationFragment"
@@ -31,11 +36,20 @@
         android:name="com.example.institutepractics.fragments.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
+
         <argument
-            android:name="Name"
-            android:defaultValue="Your name" />
-        <argument
-            android:name="Email"
-            android:defaultValue="Your email" />
+            android:name="ObjectType"
+            app:argType="com.example.institutepractics.models.User"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+    <fragment
+        android:id="@+id/startWindowFragment"
+        android:name="com.example.institutepractics.fragments.StartWindowFragment"
+        android:label="fragment_start_window"
+        tools:layout="@layout/fragment_start_window" >
+        <action
+            android:id="@+id/action_startWindowFragment_to_loginFragment"
+            app:destination="@id/loginFragment"/>
     </fragment>
 </navigation>
